@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load is_already_applied %}
+{% load static %}
+
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+         <title>Job Details </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+	
+
+	
+    <!-- Preloader Start -->
+
+   {% block content %}
+    
+    <main>
+
+        <!-- Hero Area Start-->
+        <div class="slider-area ">
+        <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="{% static 'assets/img/hero/about.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <h2>UI/UX Designer</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- Hero Area End -->
+        <!-- job post company Start -->
+        <div class="job-post-company pt-120 pb-120">
+            <div class="container">
+                <h3 class="heading">{{ job.title }}<br>
+                <div class="row justify-content-between">
+                    <small>at <a href="#"> {{ job.company_name }}</a></small>
+                    <!-- Left Content -->
+                    <div class="col-xl-7 col-lg-8">
+                        <!-- job single -->
+                        <div class="single-job-items mb-50">
+                          
+                            <div class="job-items">
+                                <div class="company-img company-img-details">
+                                    <a href="#"><img src="{% static 'assets/img/icon/job-list1.png' %}" alt=""></a>
+                                </div>
+                                <div class="job-tittle">
+                                  
+                                    <ul>
+                                        <li></li>
+                                        <li><i class="fas fa-map-marker-alt"></i>   {{ job.location }} | Posted {{ job.created_at|timesince }} |</li>
+                                        {% if job.type == '1' %}
+                                        <span class="badge featured-badge badge-success">Full time</span>
+                                    {% elif job.type == '2' %}
+                                        <span class="badge featured-badge badge-primary">Part time</span>
+                                    {% else %}
+                                        <span style="color: #ffffff;" class="badge featured-badge badge-warning">Internship</span>
+                                    {% endif %}
+                                </div>
+                                
+                            </div>
+                     
+                        </div>
+                          <!-- job single End -->
+                       
+                        <div class="job-post-details">
+                            <div class="post-details1 mb-50">
+                                <!-- Small Section Tittle -->
+                                <div class="small-section-tittle">
+                                    <h4>Job Description</h4>
+                                </div>
+                                <p>{{ job.description }}</p>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                    <!-- Right Content -->
+                    <div class="col-xl-4 col-lg-4">
+                        <div class="post-details3  mb-50">
+                            <!-- Small Section Tittle -->
+                           <div class="small-section-tittle">
+                               <h4>Job Overview</h4>
+                           </div>
+                          <ul>
+                              <li>Posted date : <span>{{ job.last_date|date }}</span></li>
+                              <li>Location : <span>New York</span></li>
+                              <li>Vacancy : <span>02</span></li>
+                              <li>Job nature : <span> {{ job.category }}</span></li>
+                              <li>Salary :  <span>$7,800 yearly</span></li>
+                              <li>Application date : <span>12 Sep 2020</span></li>
+                          </ul>
+                         
+                         <div class="apply-btn2">
+                            <a href="#" class="btn">Apply Now</a>
+                         </div>
+                       </div>
+                        <div class="post-details4  mb-50">
+                            <!-- Small Section Tittle -->
+                           <div class="small-section-tittle">
+                               <h4>Company Information</h4>
+                           </div>
+                              <span>Colorlib</span>
+                              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                            <ul>
+                                <li>Name: <span>Colorlib </span></li>
+                                <li>Web : <span> colorlib.com</span></li>
+                                <li>Email: <span>carrier.colorlib@gmail.com</span></li>
+                            </ul>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- job post company End -->
+
+    </main>
+    {% endblock %}
+        
+    </body>
+</html>
